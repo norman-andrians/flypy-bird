@@ -94,4 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ceb32c6a59a9147a72e863c9a0dbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kecepatan: 2
+  spawner: {fileID: 6587667137597360182, guid: 544e67aaf8d327743899e78a4665bb84, type: 3}
+  kecepatanMin: 0.5
+  kecepatanMax: 1.5

@@ -41,16 +41,21 @@ public class PemunculAwan : MonoBehaviour
             float posisix = Random.Range(min.x, max.x);
             float posisiy = Random.Range(min.y, max.y);
 
-            Vector2 posAwan = new Vector2(spLocation.position.x + posisix, spLocation.position.y + posisiy);
+            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, -1f);
 
-            // variabel untuk memunculkan awan
-            var awanBaru = Instantiate(cloud[indexAwan], posAwan, Quaternion.identity);
-            awanBaru.transform.parent = par.transform;
+            membuatAwan(cloud[indexAwan], par, posAwan);
 
             if (showDebug)
                 Debug.Log("memunculkan awan");
 
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    public void membuatAwan(GameObject cld, Transform pr, Vector3 pos)
+    {
+        // variabel untuk memunculkan awan
+        var awanBaru = Instantiate(cld, pos, Quaternion.identity);
+        awanBaru.transform.parent = pr.transform;
     }
 }
