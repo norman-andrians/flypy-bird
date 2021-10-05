@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerController playerController;
 
-    // Update is called once per frame
-    void Update()
+    public void StartButton(bool playing)
     {
-        
+        playerController.isPlaying = playing;
+        Debug.Log("memulai game");
     }
 }
