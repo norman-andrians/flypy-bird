@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("gameplay")]
     public float kecepatanBurung = 4f;
+    public float gayaTerbang = 20f;
+    public float angelPower = 2f;
 
     // public Vector2 lokasiKedua;
 
@@ -18,13 +20,19 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     // private float waktuMulai;
     // private float waktuMulai2;
+    private float kecepatanSebenarnya;
 
-    public bool isPlaying;
+    [HideInInspector] public bool isPlaying;
+    [HideInInspector] public enum Stats { diam, main, pause, kalah } // useless :v
+    [HideInInspector] public Stats status;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        status = Stats.diam;
+
+        kecepatanSebenarnya = kecepatanBurung / 2;
 
         // waktuMulai = delay;
         // waktuMulai2 = delay;
@@ -41,6 +49,18 @@ public class PlayerController : MonoBehaviour
         if (isPlaying)
         {
             rb.velocity = new Vector2(kecepatanBurung * Time.deltaTime, rb.velocity.y);
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rb.velocity.y * angelPower);
+
+            if (transform.position.x >= 0f)
+            {
+                kecepatanBurung = kecepatanSebenarnya;
+            }
+
+            if (Input.touchCount > 0)
+            {
+                Vector2 gaya = new Vector2(rb.velocity.x, gayaTerbang * Time.deltaTime);
+                rb.velocity = gaya;
+            }
         }
     }
 

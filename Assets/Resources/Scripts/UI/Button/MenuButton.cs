@@ -19,7 +19,7 @@ public class MenuButton : MonoBehaviour
     private IEnumerator MulaiGame()
     {
         menuAnim.SetTrigger("Start");
-        yield return new WaitForSeconds(0.4f);
-        playerController.rb.simulated = true;
+        yield return new WaitForSeconds(1f);
+        playerController.rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }
