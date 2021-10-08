@@ -14,6 +14,7 @@ public class Awan : MonoBehaviour
         speed = Random.Range(Mathf.Abs(kecepatanMin), Mathf.Abs(kecepatanMax));
     }
 
+    //
     private void FixedUpdate()
     {
         transform.Translate(Vector2.left * (Time.deltaTime * speed));

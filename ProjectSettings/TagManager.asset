@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Batas
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Pemandangan 1
   - Pemandangan 2
   - Tumbuhan
-  - 
+  - Dekat
   - 
   - 
   - 
