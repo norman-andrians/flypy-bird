@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7937947292867840594}
   - component: {fileID: 874683987274089663}
   - component: {fileID: -7057679640021519630}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Batas Tanah
   m_TagString: Batas
   m_Icon: {fileID: 0}

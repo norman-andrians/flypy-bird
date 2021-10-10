@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2215422724388543032}
   - component: {fileID: -939461801528299749}
   - component: {fileID: 2215422724388543035}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,9 +133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98032ac20913bd94dbd708abe10f87b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagMati: Obstakel
+  spriteTerbang: {fileID: 21300000, guid: 52efa20bd9598cf40bfc70025835e999, type: 3}
+  spriteJatuh: {fileID: 21300000, guid: 2b6ce813469575a48a4199d6b755f9cc, type: 3}
+  spriteMati: {fileID: 21300000, guid: 6fefaf9c8778896489fe9be2953b3d8d, type: 3}
   journeyTime: 4
   kecepatan: 0.8
   delay: 1
   kecepatanBurung: 4
+  gayaTerbang: 20
+  angelPower: 2
   rb: {fileID: 0}
   isPlaying: 0
+  isDead: 0
+  status: 0
