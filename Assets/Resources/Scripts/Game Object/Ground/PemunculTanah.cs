@@ -11,25 +11,25 @@ public class PemunculTanah : MonoBehaviour
     private Transform locParent;
     private Transform locTanah;
 
-    private float jarak = 5f;
-    private float jarakan;
+    private float jarak = 3.98f; // jarak poin kamera => batas + (panjang pixel / 4) = 5.4f + (5.12 * 4)
     private float posx;
-    private int count = 1;
+    private int count = 1; // jumlah tanah
 
-    private const float TANAH_WIDTH = 5.12f;
+    private const float TANAH_WIDTH = 5.12f; // panjang tanah
 
     // Start is called before the first frame update
     private void Start()
     {
         posx -= TANAH_WIDTH;
-        jarakan = jarak;
 
+        // komponen
         playerPos = player.GetComponent<Transform>();
         locParent = gameObject.GetComponent<Transform>();
         locTanah = objekTanah.GetComponent<Transform>();
 
         Debug.Log("test script");
 
+        // pemunculan pada awal game (Start)
         for (int i = 0; i < 4; i++)
         {
             Vector3 posisi = new Vector3(posx, locTanah.position.y, -2f);
@@ -43,20 +43,21 @@ public class PemunculTanah : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        // pemunculan tanah ketika posisi player lebih dari jarak
         if (playerPos.position.x >= jarak && playerController.isPlaying)
         {
             Vector3 posisi = new Vector3(posx, locTanah.position.y, -2f);
             membuatTanah(posisi, objekTanah, locParent, count);
             posx += TANAH_WIDTH;
-
-            Debug.Log("Memunculkan " + count.ToString());
-            jarak += jarakan;
+            jarak += TANAH_WIDTH;
             count++;
 
+            Debug.Log("Memunculkan " + count.ToString());
             Debug.Log("Jarak: " + jarak.ToString());
         }
     }
 
+    // function untuk pemanggilan tanah
     private void membuatTanah(Vector3 pos, GameObject obj, Transform objParent, int c)
     {
         var tanahBaru = Instantiate(obj, pos, Quaternion.identity);
