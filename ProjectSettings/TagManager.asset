@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Batas
+  - Poin
   layers:
   - Default
   - TransparentFX
@@ -15,12 +16,12 @@ TagManager:
   - 
   - 
   - Dekat
+  - Pre-Dekat
   - Tumbuhan
   - Pemandangan 1
   - Pemandangan 2
   - Langit
   - Atmosfer
-  - 
   - 
   - 
   - 

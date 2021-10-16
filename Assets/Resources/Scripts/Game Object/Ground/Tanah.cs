@@ -19,6 +19,6 @@ public class Tanah : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("hancurkan " + gameObject.name);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == nama) Destroy(gameObject);
     }
 }

@@ -32,7 +32,7 @@ public class PemunculTanah : MonoBehaviour
         // pemunculan pada awal game (Start)
         for (int i = 0; i < 4; i++)
         {
-            Vector3 posisi = new Vector3(posx, locTanah.position.y, -2f);
+            Vector3 posisi = new Vector3(posx, locTanah.position.y, locTanah.position.z);
             membuatTanah(posisi, objekTanah, locParent, i);
             posx += TANAH_WIDTH;
 
@@ -46,7 +46,7 @@ public class PemunculTanah : MonoBehaviour
         // pemunculan tanah ketika posisi player lebih dari jarak
         if (playerPos.position.x >= jarak && playerController.isPlaying)
         {
-            Vector3 posisi = new Vector3(posx, locTanah.position.y, -2f);
+            Vector3 posisi = new Vector3(posx, locTanah.position.y, locTanah.position.z);
             membuatTanah(posisi, objekTanah, locParent, count);
             posx += TANAH_WIDTH;
             jarak += TANAH_WIDTH;

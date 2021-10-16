@@ -41,7 +41,7 @@ public class PemunculAwan : MonoBehaviour
             float posisix = Random.Range(min.x, max.x);
             float posisiy = Random.Range(min.y, max.y);
 
-            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, -1f);
+            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, 0f);
 
             membuatAwan(cloud[indexAwan], par, posAwan);
 
