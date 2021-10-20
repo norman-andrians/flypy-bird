@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ceb32c6a59a9147a72e863c9a0dbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadTime: 14
+  deadTime: 25
   kecepatanMin: 1
   kecepatanMax: 2

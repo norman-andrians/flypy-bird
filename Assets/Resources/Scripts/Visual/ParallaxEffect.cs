@@ -7,7 +7,6 @@ public class ParallaxEffect : MonoBehaviour
     public class ScrollBackground
     {
         public GameObject spriteObject;
-        public Vector3 startPos, endpos;
         public float speed;
     }
 
@@ -17,11 +16,13 @@ public class ParallaxEffect : MonoBehaviour
     public ScrollBackground[] scrollBg;
 
     private PlayerController playerController;
+    private Rigidbody2D playerRb;
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
+        playerRb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,9 +36,9 @@ public class ParallaxEffect : MonoBehaviour
             }
             for (int c = 0; c < scrollBg.Length; c++)
             {
-                if (scrollBg[c].spriteObject.transform.position.x > scrollBg[c].endpos.x)
-                    scrollBg[c].spriteObject.transform.position += Vector3.left * scrollBg[c].speed * Time.deltaTime;
-                else scrollBg[c].spriteObject.transform.position = scrollBg[c].startPos;
+                if (playerRb.velocity.x > 0)
+                    scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * scrollBg[c].speed;
+                else scrollBg[c].spriteObject.transform.position += Vector3.right * Time.deltaTime * scrollBg[c].speed;
             }
         }
     }

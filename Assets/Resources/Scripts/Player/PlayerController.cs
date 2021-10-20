@@ -69,10 +69,13 @@ public class PlayerController : MonoBehaviour
                     kecepatanBurung = kecepatanSebenarnya;
                 }
 
-                if (Input.touchCount > 0)
+                if (rb.velocity.y < 0)
                 {
-                    Vector2 gaya = new Vector2(rb.velocity.x, gayaTerbang * Time.deltaTime);
-                    rb.velocity = gaya;
+                    if (Input.touchCount > 0)
+                    {
+                        Vector2 gaya = new Vector2(rb.velocity.x, gayaTerbang * Time.deltaTime);
+                        rb.velocity = gaya;
+                    }
                 }
             }
         }
