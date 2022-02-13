@@ -7,25 +7,29 @@ public class PemindahGunung : MonoBehaviour
     public class ObjectPegunungan
     {
         public GameObject gunung;
-        public float jarak;
-        public float maxJarak;
+        public float jarakAwal;
+        public float jarakAkhir;
     }
 
     public GameObject player;
     public ObjectPegunungan[] objGunung;
 
-    private float[] jarakPosAwal;
-    private float[] jarakPosAkhir;
+    private Vector2[] jarakPosAwal;
+    private Vector2[] jarakPosAkhir;
+
+    private PlayerController playerController;
 
     private void Start()
     {
-        jarakPosAwal = new float[objGunung.Length];
-        jarakPosAkhir = new float[objGunung.Length];
+        playerController = player.GetComponent<PlayerController>();
+
+        jarakPosAwal = new Vector2[objGunung.Length];
+        jarakPosAkhir = new Vector2[objGunung.Length];
 
         for (int i = 0; i < objGunung.Length; i++)
         {
-            jarakPosAwal[i] = objGunung[i].jarak;
-            jarakPosAkhir[i] = objGunung[i].maxJarak;
+            jarakPosAwal[i] = new Vector2(objGunung[i].jarakAwal, jarakPosAwal[i].y);
+            jarakPosAkhir[i] = new Vector2(objGunung[i].jarakAkhir, jarakPosAkhir[i].y);
         }
     }
 
@@ -33,15 +37,16 @@ public class PemindahGunung : MonoBehaviour
     {
         for (int i = 0; i < objGunung.Length; i++)
         {
-            if (objGunung[i].gunung.transform.position.x < player.transform.position.x - objGunung[i].jarak)
+            jarakPosAwal[i] = new Vector2(player.transform.position.x + objGunung[i].jarakAwal, jarakPosAwal[i].y);
+            jarakPosAkhir[i] = new Vector2(player.transform.position.x - objGunung[i].jarakAkhir, jarakPosAkhir[i].y);
+
+            if (playerController.isPlaying && objGunung[i].gunung.transform.position.x < player.transform.position.x - objGunung[i].jarakAkhir)
             {
                 objGunung[i].gunung.transform.position = new Vector3(
-                    jarakPosAkhir[i],
+                    jarakPosAwal[i].x,
                     objGunung[i].gunung.transform.position.y,
                     objGunung[i].gunung.transform.position.z
                 );
-
-                objGunung[i].jarak += jarakPosAwal[i];
             }
         }
     }

@@ -62,15 +62,16 @@ public class PlayerController : MonoBehaviour
         if (isPlaying)
         {
             transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rb.velocity.y * angelPower);
-            if (!isDead || !isPaused)
+            if (!isPaused)
             {
+                rb.simulated = true;
                 rb.velocity = new Vector2(kecepatanBurung * Time.deltaTime, rb.velocity.y);
                 if (transform.position.x >= 0f)
                 {
                     kecepatanBurung = kecepatanSebenarnya;
                 }
 
-                if (rb.velocity.y < 0)
+                if (rb.velocity.y < 0 && !isPaused)
                 {
                     if (Input.touchCount > 0)
                     {
@@ -78,6 +79,10 @@ public class PlayerController : MonoBehaviour
                         rb.velocity = gaya;
                     }
                 }
+            }
+            else if (isPaused)
+            {
+                rb.simulated = false;
             }
         }
     }
