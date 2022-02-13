@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool isPlaying;
     [HideInInspector] public bool isDead = false;
+    [HideInInspector] public bool isPaused = false;
     [HideInInspector] public enum Stats { diam, main, pause, kalah } // useless :v
     [HideInInspector] public Stats status;
 
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (isPlaying)
         {
             transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rb.velocity.y * angelPower);
-            if (!isDead)
+            if (!isDead || !isPaused)
             {
                 rb.velocity = new Vector2(kecepatanBurung * Time.deltaTime, rb.velocity.y);
                 if (transform.position.x >= 0f)

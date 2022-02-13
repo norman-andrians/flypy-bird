@@ -16,19 +16,16 @@ public class PemindahGunung : MonoBehaviour
 
     private float[] jarakPosAwal;
     private float[] jarakPosAkhir;
-    private float[] maxJarak;
 
     private void Start()
     {
         jarakPosAwal = new float[objGunung.Length];
         jarakPosAkhir = new float[objGunung.Length];
-        maxJarak = new float[objGunung.Length];
 
         for (int i = 0; i < objGunung.Length; i++)
         {
             jarakPosAwal[i] = objGunung[i].jarak;
-            jarakPosAkhir[i] = Random.Range(objGunung[i].jarak, objGunung[i].maxJarak);
-            maxJarak[i] = objGunung[i].maxJarak;
+            jarakPosAkhir[i] = objGunung[i].maxJarak;
         }
     }
 
@@ -45,9 +42,6 @@ public class PemindahGunung : MonoBehaviour
                 );
 
                 objGunung[i].jarak += jarakPosAwal[i];
-                objGunung[i].maxJarak += maxJarak[i];
-
-                jarakPosAkhir[i] = Random.Range(objGunung[i].jarak, objGunung[i].maxJarak);
             }
         }
     }
