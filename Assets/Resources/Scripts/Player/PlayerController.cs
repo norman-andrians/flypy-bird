@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.simulated = true;
                 rb.velocity = new Vector2(kecepatanBurung * Time.deltaTime, rb.velocity.y);
+
                 if (transform.position.x >= 0f)
                 {
                     kecepatanBurung = kecepatanSebenarnya;

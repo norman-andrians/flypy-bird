@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6407880925793475388}
   - component: {fileID: 6407880925793475387}
   - component: {fileID: -192000346952593683}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: awan-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -94,6 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ceb32c6a59a9147a72e863c9a0dbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadTime: 25
-  kecepatanMin: 1
-  kecepatanMax: 2
+  deadTime: 12
+  kecepatanMin: 0.4
+  kecepatanMax: 1

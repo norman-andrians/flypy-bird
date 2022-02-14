@@ -21,7 +21,6 @@ public class MenuButton : MonoBehaviour
     {
         menuAnim.SetTrigger("Start");
         yield return new WaitForSeconds(1f);
-        pauseButton.SetActive(true);
         playerController.rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PemunculAwan : MonoBehaviour
 {
+    public GameObject cameraObj;
+    public Vector2 offSet;
+
     // variabel objek untuk awan
     public GameObject[] awan;
     public GameObject awanParent;
@@ -31,6 +34,11 @@ public class PemunculAwan : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        transform.position = new Vector3(cameraObj.transform.position.x + offSet.x, this.transform.position.y, -5f);
+    }
+
     // fungsi untuk memunculkan awan
     public IEnumerator munculkanAwan(GameObject[] cloud, Transform par, Transform spLocation, Vector2 min, Vector2 max, float delay, bool showDebug)
     {
@@ -41,7 +49,7 @@ public class PemunculAwan : MonoBehaviour
             float posisix = Random.Range(min.x, max.x);
             float posisiy = Random.Range(min.y, max.y);
 
-            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, 0f);
+            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, -2f);
 
             membuatAwan(cloud[indexAwan], par, posAwan);
 

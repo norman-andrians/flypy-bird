@@ -26,9 +26,9 @@ public class ParallaxEffect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (player.transform.position.x >= layerParentOffset.x && !playerController.isDead)
+        if (player.transform.position.x >= layerParentOffset.x && !playerController.isPaused)
         {
             for (int a = 0; a < layerParent.Length; a++)
             {

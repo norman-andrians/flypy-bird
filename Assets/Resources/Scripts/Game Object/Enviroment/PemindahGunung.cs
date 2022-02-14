@@ -33,14 +33,14 @@ public class PemindahGunung : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         for (int i = 0; i < objGunung.Length; i++)
         {
             jarakPosAwal[i] = new Vector2(player.transform.position.x + objGunung[i].jarakAwal, jarakPosAwal[i].y);
             jarakPosAkhir[i] = new Vector2(player.transform.position.x - objGunung[i].jarakAkhir, jarakPosAkhir[i].y);
 
-            if (playerController.isPlaying && objGunung[i].gunung.transform.position.x < player.transform.position.x - objGunung[i].jarakAkhir)
+            if (playerController.isPlaying && objGunung[i].gunung.transform.position.x <= player.transform.position.x - objGunung[i].jarakAkhir)
             {
                 objGunung[i].gunung.transform.position = new Vector3(
                     jarakPosAwal[i].x,

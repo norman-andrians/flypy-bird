@@ -19,7 +19,7 @@ public class GunungBelakang : MonoBehaviour
     {
         if (playerLoc.position.x > 0)
         {
-            transform.position = new Vector2(playerLoc.position.x, transform.position.y);
+            transform.position = new Vector3(playerLoc.position.x, transform.position.y, transform.position.z);
         }
     }
 }
