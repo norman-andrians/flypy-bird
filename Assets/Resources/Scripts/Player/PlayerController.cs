@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject gameoverObj;
+    public GameObject pauseObj;
+
     public string tagMati;
     public Sprite spriteTerbang;
     public Sprite spriteJatuh;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // private float waktuMulai2;
     private float kecepatanSebenarnya;
     private SpriteRenderer playerSprite;
+    private Animator pauseAnim;
 
     [HideInInspector] public bool isPlaying;
     [HideInInspector] public bool isDead = false;
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
+        pauseAnim = pauseObj.GetComponent<Animator>();
         status = Stats.diam;
 
         kecepatanSebenarnya = kecepatanBurung / 2;
@@ -55,11 +60,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.velocity.y > 0)
-            playerSprite.sprite = spriteTerbang;
-        else playerSprite.sprite = spriteJatuh;
+        if (!isDead)
+        {
+            if (rb.velocity.y > 0)
+                playerSprite.sprite = spriteTerbang;
+            else playerSprite.sprite = spriteJatuh;
+        }
+        else playerSprite.sprite = spriteMati;
 
-        if (isPlaying)
+        if (isPlaying && !isDead)
         {
             transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rb.velocity.y * angelPower);
             if (!isPaused)
@@ -90,7 +99,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == tagMati) isDead = true;
+        if (collision.gameObject.tag == tagMati)
+        {
+            StartCoroutine(endPause());
+            isDead = true;
+            gameoverObj.SetActive(true);
+        }
     }
 
     /* kode ghaib :'v
@@ -100,4 +114,11 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Slerp(transform.position, new Vector3(lokDua.x, lokDua.y, -1), frac);
     }
     */
+
+    private IEnumerator endPause()
+    {
+        pauseAnim.SetTrigger("Hide");
+        yield return new WaitForSeconds(.8f);
+        pauseObj.SetActive(false);
+    }
 }

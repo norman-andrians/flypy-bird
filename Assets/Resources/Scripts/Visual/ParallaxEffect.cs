@@ -18,6 +18,8 @@ public class ParallaxEffect : MonoBehaviour
     private PlayerController playerController;
     private Rigidbody2D playerRb;
 
+    private float playerSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class ParallaxEffect : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        playerSpeed = playerRb.velocity.x;
         if (player.transform.position.x >= layerParentOffset.x && !playerController.isPaused)
         {
             for (int a = 0; a < layerParent.Length; a++)
@@ -36,9 +39,7 @@ public class ParallaxEffect : MonoBehaviour
             }
             for (int c = 0; c < scrollBg.Length; c++)
             {
-                if (playerRb.velocity.x > 0)
-                    scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * scrollBg[c].speed;
-                else scrollBg[c].spriteObject.transform.position += Vector3.right * Time.deltaTime * scrollBg[c].speed;
+                scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * (playerSpeed/2);
             }
         }
     }

@@ -12,7 +12,7 @@ public class Awan : MonoBehaviour
     private void Start()
     {
         speed = Random.Range(Mathf.Abs(kecepatanMin), Mathf.Abs(kecepatanMax));
-        StartCoroutine(waktuMati(gameObject, deadTime * speed));
+        StartCoroutine(waktuMati(gameObject, deadTime / speed));
     }
 
     //

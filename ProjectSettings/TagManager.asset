@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Batas
   - Poin
+  - Obstakel
   layers:
   - Default
   - TransparentFX

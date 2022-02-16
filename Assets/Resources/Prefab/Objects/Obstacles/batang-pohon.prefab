@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 7925716937866684640}
   m_Layer: 9
   m_Name: batang-2
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +83,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -157,7 +158,7 @@ GameObject:
   - component: {fileID: 7925716937978321398}
   m_Layer: 9
   m_Name: batang-3
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,6 +192,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -265,7 +267,7 @@ GameObject:
   - component: {fileID: 7925716938018817110}
   m_Layer: 9
   m_Name: batang-4
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +301,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -373,7 +376,7 @@ GameObject:
   - component: {fileID: 7925716938099915544}
   m_Layer: 9
   m_Name: batang-3
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +410,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -481,7 +485,7 @@ GameObject:
   - component: {fileID: 7925716938195094611}
   m_Layer: 9
   m_Name: batang-5
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,6 +519,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -589,7 +594,7 @@ GameObject:
   - component: {fileID: 7925716938240618859}
   m_Layer: 9
   m_Name: batang-2
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,6 +628,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -770,7 +776,7 @@ GameObject:
   - component: {fileID: 7925716938506620951}
   m_Layer: 9
   m_Name: batang-4
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -804,6 +810,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -878,7 +885,7 @@ GameObject:
   - component: {fileID: 7925716938753743524}
   m_Layer: 9
   m_Name: batang-1
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -912,6 +919,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -986,7 +994,7 @@ GameObject:
   - component: {fileID: 7925716939030921613}
   m_Layer: 9
   m_Name: batang-0
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,6 +1028,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1094,7 +1103,7 @@ GameObject:
   - component: {fileID: 7925716939268894747}
   m_Layer: 9
   m_Name: batang-1
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,6 +1137,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1202,7 +1212,7 @@ GameObject:
   - component: {fileID: 7925716939514658784}
   m_Layer: 9
   m_Name: batang-0
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1236,6 +1246,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1346,7 +1357,7 @@ GameObject:
   - component: {fileID: 7925716939711002047}
   m_Layer: 9
   m_Name: batang-5
-  m_TagString: Untagged
+  m_TagString: Obstakel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,6 +1391,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
