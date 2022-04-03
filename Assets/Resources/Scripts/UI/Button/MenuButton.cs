@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MenuButton : MonoBehaviour
 {
     public GameObject pauseButton;
+    public GameObject pointText;
     public Animator menuAnim;
 
     public PlayerController playerController;
@@ -12,7 +13,7 @@ public class MenuButton : MonoBehaviour
     public void StartButton(bool playing)
     {
         playerController.isPlaying = playing;
-        Debug.Log("memulai game");
+        pointText.SetActive(true);
 
         StartCoroutine(MulaiGame());
     }

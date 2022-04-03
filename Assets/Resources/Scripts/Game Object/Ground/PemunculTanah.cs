@@ -27,8 +27,6 @@ public class PemunculTanah : MonoBehaviour
         locParent = gameObject.GetComponent<Transform>();
         locTanah = objekTanah.GetComponent<Transform>();
 
-        Debug.Log("test script");
-
         // pemunculan pada awal game (Start)
         for (int i = 0; i < 4; i++)
         {
@@ -36,7 +34,7 @@ public class PemunculTanah : MonoBehaviour
             membuatTanah(posisi, objekTanah, locParent, i);
             posx += TANAH_WIDTH;
 
-            Debug.Log("Memunculkan " + i.ToString());
+            // Debug.Log("Memunculkan " + i.ToString());
         }
     }
 
@@ -52,8 +50,8 @@ public class PemunculTanah : MonoBehaviour
             jarak += TANAH_WIDTH;
             count++;
 
-            Debug.Log("Memunculkan " + count.ToString());
-            Debug.Log("Jarak: " + jarak.ToString());
+            // Debug.Log("Memunculkan " + count.ToString());
+            // Debug.Log("Jarak: " + jarak.ToString());
         }
     }
 

@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public enum Stats { diam, main, pause, kalah } // useless :v
     [HideInInspector] public Stats status;
 
+    public Player playerDat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,9 +103,21 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == tagMati && !isDead)
         {
+            if (playerDat.point > playerDat.bestPoint) playerDat.bestPoint = playerDat.point;
+            playerDat.SaveData();
+
             StartCoroutine(endPause());
-            isDead = true;
             gameoverObj.SetActive(true);
+            isDead = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Poin")
+        {
+            playerDat.point++;
+            Debug.Log("points: " + playerDat.point);
         }
     }
 

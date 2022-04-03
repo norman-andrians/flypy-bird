@@ -22,6 +22,7 @@ public class PauseButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        restartObj.SetActive(true);
         playerController = player.GetComponent<PlayerController>();
 
         pauseButtonAnim = pausedButton.GetComponent<Animator>();
@@ -48,7 +49,6 @@ public class PauseButton : MonoBehaviour
 
     public void RestartScene()
     {
-        restartObj.SetActive(true);
         StartCoroutine(Restartgame());
     }
 
