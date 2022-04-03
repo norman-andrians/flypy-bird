@@ -4054,7 +4054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1741852253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4666,7 +4666,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseObj
       value: 
-      objectReference: {fileID: 846981801}
+      objectReference: {fileID: 1288206654}
     - target: {fileID: 2215422724388543035, guid: d1cd1455eef8aab409d88de40afb2d0f,
         type: 3}
       propertyPath: angelLimit
@@ -4810,6 +4810,11 @@ PrefabInstance:
       propertyPath: awanParent
       value: 
       objectReference: {fileID: 849307220}
+    - target: {fileID: 5030585955727211590, guid: 544e67aaf8d327743899e78a4665bb84,
+        type: 3}
+      propertyPath: tampilkanDebug
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5030585955727211592, guid: 544e67aaf8d327743899e78a4665bb84,
         type: 3}
       propertyPath: m_Name

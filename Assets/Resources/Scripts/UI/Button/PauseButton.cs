@@ -48,6 +48,7 @@ public class PauseButton : MonoBehaviour
 
     public void RestartScene()
     {
+        restartObj.SetActive(true);
         StartCoroutine(Restartgame());
     }
 

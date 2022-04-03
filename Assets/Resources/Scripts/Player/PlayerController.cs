@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == tagMati)
+        if (collision.gameObject.tag == tagMati && !isDead)
         {
             StartCoroutine(endPause());
             isDead = true;
