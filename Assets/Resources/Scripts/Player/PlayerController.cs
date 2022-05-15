@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator CameraMovement;
     public GameObject gameoverObj;
     public GameObject pauseObj;
+
 
     public string tagMati;
     public Sprite spriteTerbang;
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public float kecepatanBurung = 4f;
     public float gayaTerbang = 20f;
     public float angelPower = 2f;
+
+    public AudioClip buttonSound;
 
     // public Vector2 lokasiKedua;
 
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
         pauseAnim = pauseObj.GetComponent<Animator>();
+
         status = Stats.diam;
 
         kecepatanSebenarnya = kecepatanBurung / 2;
@@ -54,18 +59,22 @@ public class PlayerController : MonoBehaviour
         // waktuMulai2 = delay;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0)
+        {
+            BirdFly();
+        }
     }
 
     private void FixedUpdate()
     {
         if (!isDead)
         {
-            if (rb.velocity.y > 0)
+            if (rb.velocity.y > 3.5f)
+            {
                 playerSprite.sprite = spriteTerbang;
+            }
             else playerSprite.sprite = spriteJatuh;
         }
         else playerSprite.sprite = spriteMati;
@@ -78,24 +87,27 @@ public class PlayerController : MonoBehaviour
                 rb.simulated = true;
                 rb.velocity = new Vector2(kecepatanBurung * Time.deltaTime, rb.velocity.y);
 
-                if (transform.position.x >= 0f)
-                {
-                    kecepatanBurung = kecepatanSebenarnya;
-                }
-
-                if (rb.velocity.y < 0 && !isPaused)
-                {
-                    if (Input.touchCount > 0)
-                    {
-                        Vector2 gaya = new Vector2(rb.velocity.x, gayaTerbang * Time.deltaTime);
-                        rb.velocity = gaya;
-                    }
-                }
+                if (transform.position.x >= 0f) { kecepatanBurung = kecepatanSebenarnya; }
             }
             else if (isPaused)
             {
                 rb.simulated = false;
             }
+        }
+    }
+
+    private void BirdFly()
+    {
+        // if (rb.velocity.y < 3f)
+        if (isPlaying && !isDead)
+            rb.velocity = Vector2.up * gayaTerbang;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Poin")
+        {
+            playerDat.point++;
         }
     }
 
@@ -105,19 +117,12 @@ public class PlayerController : MonoBehaviour
         {
             if (playerDat.point > playerDat.bestPoint) playerDat.bestPoint = playerDat.point;
             playerDat.SaveData();
+            Handheld.Vibrate();
 
             StartCoroutine(endPause());
             gameoverObj.SetActive(true);
+            CameraMovement.enabled = true;
             isDead = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Poin")
-        {
-            playerDat.point++;
-            Debug.Log("points: " + playerDat.point);
         }
     }
 

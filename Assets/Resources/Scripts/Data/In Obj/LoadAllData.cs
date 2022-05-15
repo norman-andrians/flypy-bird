@@ -7,8 +7,7 @@ public class LoadAllData : MonoBehaviour
 {
     public Player playerDat;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         string pathDat = Application.persistentDataPath + "/player.dat";
 

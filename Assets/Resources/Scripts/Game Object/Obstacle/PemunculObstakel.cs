@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class PemunculObstakel : MonoBehaviour
 {
+    [System.Serializable]
+    public class PenjarakanLevel
+    {
+        public float jarakKurang;
+        public float pelatukJarak;
+        public bool sudahkahJarak = false;
+    }
+
     public GameObject player;
     public GameObject obstakel;
 
     public float radiusObs = 5f;
     public float jarakMuncul = 4f;
     public float jarakCelah = 1f;
+
+    public PenjarakanLevel[] Penjarakan;
 
     private Transform obsPos;
     private Transform playerPos;
@@ -46,6 +56,8 @@ public class PemunculObstakel : MonoBehaviour
     {
         if (playerPos.position.x >= jarakAntarPlayer && playerController.isPlaying)
         {
+            jarakObs(Penjarakan);
+
             posy = Random.Range(-radiusObs, radiusObs);
             Vector3 posisiObs = new Vector3(jarakMunculSebenarnya, posy, obsPos.position.z);
             membuatObstakel(obstakel, posisiObs, jarakCelah, count);
@@ -74,5 +86,18 @@ public class PemunculObstakel : MonoBehaviour
 
         obsBaru.name = obj.name + " " + jumlah.ToString();
         obsBaru.transform.parent = gameObject.transform;
+    }
+
+    public void jarakObs(PenjarakanLevel[] jarakLevel)
+    {
+        for (int i = 0; i < jarakLevel.Length; i++)
+        {
+            if (playerPos.position.x > jarakLevel[i].pelatukJarak && !jarakLevel[i].sudahkahJarak)
+            {
+                jarakCelah -= jarakLevel[i].jarakKurang;
+
+                jarakLevel[i].sudahkahJarak = true;
+            }
+        }
     }
 }

@@ -49,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98032ac20913bd94dbd708abe10f87b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameoverObj: {fileID: 0}
+  pauseObj: {fileID: 0}
   tagMati: Obstakel
   spriteTerbang: {fileID: 21300000, guid: 52efa20bd9598cf40bfc70025835e999, type: 3}
   spriteJatuh: {fileID: 21300000, guid: 2b6ce813469575a48a4199d6b755f9cc, type: 3}
@@ -143,7 +146,10 @@ MonoBehaviour:
   kecepatanBurung: 4
   gayaTerbang: 20
   angelPower: 2
+  buttonSound: {fileID: 0}
   rb: {fileID: 0}
   isPlaying: 0
   isDead: 0
+  isPaused: 0
   status: 0
+  playerDat: {fileID: 0}

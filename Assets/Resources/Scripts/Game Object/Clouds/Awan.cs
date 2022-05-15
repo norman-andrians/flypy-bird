@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Awan : MonoBehaviour
 {
-    public float deadTime;
     public float kecepatanMin;
     public float kecepatanMax;
 
     private float speed;
+    private GameObject player;
 
     private void Start()
     {
         speed = Random.Range(Mathf.Abs(kecepatanMin), Mathf.Abs(kecepatanMax));
-        StartCoroutine(waktuMati(gameObject, deadTime / speed));
+        player = GameObject.Find("Player");
     }
 
     //
@@ -21,9 +21,8 @@ public class Awan : MonoBehaviour
         transform.Translate(Vector2.left * (Time.deltaTime * speed));
     }
 
-    public IEnumerator waktuMati(GameObject obj, float t)
+    private void Update()
     {
-        yield return new WaitForSeconds(t);
-        Destroy(obj);
+        if (transform.position.x < player.transform.position.x - 18f) { Destroy(gameObject); }
     }
 }
