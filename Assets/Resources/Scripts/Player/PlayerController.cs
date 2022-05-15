@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Options options;
     public Animator CameraMovement;
     public GameObject gameoverObj;
     public GameObject pauseObj;
@@ -115,9 +116,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == tagMati && !isDead)
         {
+            if (options.isVibrate) Handheld.Vibrate();
             if (playerDat.point > playerDat.bestPoint) playerDat.bestPoint = playerDat.point;
+
             playerDat.SaveData();
-            Handheld.Vibrate();
 
             StartCoroutine(endPause());
             gameoverObj.SetActive(true);

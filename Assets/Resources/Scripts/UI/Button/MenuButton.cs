@@ -49,7 +49,7 @@ public class MenuButton : MonoBehaviour
 
     public void CreditsButton()
     {
-        if (!showCredits && playerController.isPlaying)
+        if (!showCredits && !playerController.isPlaying)
         {
             StartCoroutine(ShowCredits());
         }
