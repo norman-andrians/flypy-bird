@@ -6,6 +6,7 @@ public class GameAudio : MonoBehaviour
 {
     public AudioClip buttonClick; // button click sound from www.zapsplat.com
     public AudioClip getPoint;
+    public AudioClip impact;
 
     private AudioSource audioSource;
 
@@ -16,4 +17,5 @@ public class GameAudio : MonoBehaviour
 
     public void buttonSound () { audioSource.PlayOneShot(buttonClick); }
     public void pointSound() { audioSource.PlayOneShot(getPoint); }
+    public void impactSound() { audioSource.PlayOneShot(impact); }
 }

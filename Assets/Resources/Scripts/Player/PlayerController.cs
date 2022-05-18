@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameAudio gameAudio;
     public Options options;
     public Animator CameraMovement;
     public GameObject gameoverObj;
     public GameObject pauseObj;
-
+    public Button pauseBtn;
 
     public string tagMati;
     public Sprite spriteTerbang;
@@ -62,10 +65,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             BirdFly();
         }
+#if UNITY_ANDROID
+        // if (Input.touchCount > 0 && rb.velocity.y > 3.8) BirdFly();
+        if (Input.touchCount > 0 && rb.velocity.y > 3.8 && playerSprite.sprite == spriteJatuh) BirdFly();
+#endif
     }
 
     private void FixedUpdate()
@@ -99,8 +106,7 @@ public class PlayerController : MonoBehaviour
 
     private void BirdFly()
     {
-        // if (rb.velocity.y < 3f)
-        if (isPlaying && !isDead)
+        if (transform.position.x > -3f && isPlaying && !isDead)
             rb.velocity = Vector2.up * gayaTerbang;
     }
 
@@ -119,9 +125,11 @@ public class PlayerController : MonoBehaviour
             if (options.isVibrate) Handheld.Vibrate();
             if (playerDat.point > playerDat.bestPoint) playerDat.bestPoint = playerDat.point;
 
+            gameAudio.impactSound();
             playerDat.SaveData();
 
             StartCoroutine(endPause());
+            pauseBtn.enabled = !pauseBtn.enabled;
             gameoverObj.SetActive(true);
             CameraMovement.enabled = true;
             isDead = true;

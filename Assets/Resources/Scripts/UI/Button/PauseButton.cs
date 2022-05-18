@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseButton : MonoBehaviour
 {
     public GameObject player;
 
+    public Button pauseBtn;
     public GameObject pauseObj;
     public GameObject pausedButton;
     public GameObject resumeButton;
@@ -30,20 +33,33 @@ public class PauseButton : MonoBehaviour
         restartAnim = restartObj.GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && playerController.isPlaying)
+        {
+            OnPaused();
+            pauseObj.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && playerController.isPlaying)
+        {
+            UnPaused();
+        }
+    }
+
     public void OnPaused()
     {
         if (!playerController.isDead && !isPaused)
         {
-            StartCoroutine(HidePaudeButton());
             playerController.isPaused = isPaused = true;
+            StartCoroutine(HidePaudeButton());
         }
     }
     public void UnPaused()
     {
         if (isPaused)
         {
+            playerController.isPaused = false;
             StartCoroutine(HidePause());
-            playerController.isPaused = isPaused = false;
         }
     }
 
@@ -62,7 +78,9 @@ public class PauseButton : MonoBehaviour
     private IEnumerator HidePause()
     {
         pauseAnim.SetTrigger("Hide");
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.5f);
+
+        isPaused = false;
         pauseObj.SetActive(false);
     }
 
