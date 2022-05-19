@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public int point = 0;
     [HideInInspector] public int bestPoint = 0;
+    [HideInInspector] public int coins = 0;
 
     // simpan data pemain
     public void SaveData()

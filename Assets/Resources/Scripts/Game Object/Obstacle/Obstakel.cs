@@ -29,7 +29,7 @@ public class Obstakel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameAudio.pointSound();
+            // gameAudio.pointSound();
             Destroy(colider);
         }
     }

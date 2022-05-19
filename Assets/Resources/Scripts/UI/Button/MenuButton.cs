@@ -10,7 +10,7 @@ public class MenuButton : MonoBehaviour
     public GameObject settingButton;
     public GameObject exit;
     public GameObject credits;
-    public GameObject pointText;
+    public GameObject pointField;
     public Animator menuAnim;
     public Animator LbbAnim;
 
@@ -49,7 +49,7 @@ public class MenuButton : MonoBehaviour
         if (showCredits) StartCoroutine(HideCredits());
 
         playerController.isPlaying = playing;
-        pointText.SetActive(true);
+        pointField.SetActive(true);
 
         LbbAnim.enabled = true;
 

@@ -116,6 +116,11 @@ public class PlayerController : MonoBehaviour
         {
             playerDat.point++;
         }
+
+        if (collision.gameObject.tag == "Coin")
+        {
+            GetCoin();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -125,15 +130,26 @@ public class PlayerController : MonoBehaviour
             if (options.isVibrate) Handheld.Vibrate();
             if (playerDat.point > playerDat.bestPoint) playerDat.bestPoint = playerDat.point;
 
-            gameAudio.impactSound();
-            playerDat.SaveData();
-
-            StartCoroutine(endPause());
-            pauseBtn.enabled = !pauseBtn.enabled;
-            gameoverObj.SetActive(true);
-            CameraMovement.enabled = true;
-            isDead = true;
+            PlayerDead();
         }
+    }
+
+    private void GetCoin()
+    {
+        playerDat.coins++;
+        gameAudio.coinsSound();
+    }
+
+    private void PlayerDead()
+    {
+        gameAudio.impactSound();
+        playerDat.SaveData();
+
+        StartCoroutine(endPause());
+        pauseBtn.enabled = !pauseBtn.enabled;
+        gameoverObj.SetActive(true);
+        CameraMovement.enabled = true;
+        isDead = true;
     }
 
     /* kode ghaib :'v

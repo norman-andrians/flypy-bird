@@ -14,6 +14,7 @@ public class PemunculObstakel : MonoBehaviour
 
     public GameObject player;
     public GameObject obstakel;
+    public GameObject coins;
 
     public float radiusObs = 5f;
     public float jarakMuncul = 4f;
@@ -84,6 +85,8 @@ public class PemunculObstakel : MonoBehaviour
         obsTop.position = obsTopPos;
         obsBottom.position = obsBottomPos;
 
+        MunculkanCoin(2, obsBaru);
+
         obsBaru.name = obj.name + " " + jumlah.ToString();
         obsBaru.transform.parent = gameObject.transform;
     }
@@ -98,6 +101,23 @@ public class PemunculObstakel : MonoBehaviour
 
                 jarakLevel[i].sudahkahJarak = true;
             }
+        }
+    }
+
+    public void MunculkanCoin(int seed, GameObject parent)
+    {
+        int valRange = Random.Range(0, seed);
+        int valTarget = 0;
+
+        if (valRange == valTarget)
+        {
+            GameObject coinBaru = Instantiate(coins, new Vector3(
+                parent.transform.position.x,
+                parent.transform.position.y,
+                -2f
+                ), Quaternion.identity);
+
+            coinBaru.transform.parent = parent.transform;
         }
     }
 }
