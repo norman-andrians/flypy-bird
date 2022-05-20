@@ -25,13 +25,19 @@ public class PemunculAwan : MonoBehaviour
     {
         lokasiParent = awanParent.GetComponent<Transform>();
 
+        for (int i = 0; i < 2; i++)
+        {
+            Vector3 awanPos =  posisiAwan(jarakMin, jarakMax);
+            membuatAwan(awan[i], awanParent.transform, awanPos);
+        }
+
         StartCoroutine(munculkanAwan(awan, lokasiParent, transform, jarakMin, jarakMax, waktu, tampilkanDebug));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -42,14 +48,11 @@ public class PemunculAwan : MonoBehaviour
     // fungsi untuk memunculkan awan
     public IEnumerator munculkanAwan(GameObject[] cloud, Transform par, Transform spLocation, Vector2 min, Vector2 max, float delay, bool showDebug)
     {
-        while (true)
+        while (true && awanParent.transform.childCount < 6)
         {
             int indexAwan = Random.Range(0, awan.Length);
 
-            float posisix = Random.Range(min.x, max.x);
-            float posisiy = Random.Range(min.y, max.y);
-
-            Vector3 posAwan = new Vector3(spLocation.position.x + posisix, spLocation.position.y + posisiy, 2f);
+            Vector3 posAwan = posisiAwan(min, max);
 
             membuatAwan(cloud[indexAwan], par, posAwan);
 
@@ -60,9 +63,16 @@ public class PemunculAwan : MonoBehaviour
         }
     }
 
+    public Vector3 posisiAwan(Vector2 min, Vector2 max)
+    {
+        float posisix = Random.Range(min.x, max.x);
+        float posisiy = Random.Range(min.y, max.y);
+
+        return new Vector3(transform.position.x + posisix, transform.position.y + posisiy, 2f);
+    }
+
     public void membuatAwan(GameObject cld, Transform pr, Vector3 pos)
     {
-        // variabel untuk memunculkan awan
         var awanBaru = Instantiate(cld, pos, Quaternion.identity);
         awanBaru.transform.parent = pr.transform;
     }

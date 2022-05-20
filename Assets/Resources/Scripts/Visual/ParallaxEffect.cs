@@ -39,7 +39,10 @@ public class ParallaxEffect : MonoBehaviour
             }
             for (int c = 0; c < scrollBg.Length; c++)
             {
-                scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * (playerSpeed/2);
+                if (player.transform.position.x >= -3f)
+                    scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * (playerSpeed/2.5f);
+                else
+                    scrollBg[c].spriteObject.transform.position += Vector3.left * Time.deltaTime * (playerSpeed/3);
             }
         }
     }
