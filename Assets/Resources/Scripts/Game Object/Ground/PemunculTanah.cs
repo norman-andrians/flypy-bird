@@ -22,16 +22,16 @@ public class PemunculTanah : MonoBehaviour
     {
         posx -= TANAH_WIDTH;
 
-        // komponen
+        // Komponen
         playerPos = player.GetComponent<Transform>();
         locParent = gameObject.GetComponent<Transform>();
         locTanah = objekTanah.GetComponent<Transform>();
 
-        // pemunculan pada awal game (Start)
+        // Pemunculan pada awal game (Start)
         for (int i = 0; i < 4; i++)
         {
             Vector3 posisi = new Vector3(posx, locTanah.position.y, locTanah.position.z);
-            membuatTanah(posisi, objekTanah, locParent, i);
+            MembuatTanah(posisi, objekTanah, locParent, i);
             posx += TANAH_WIDTH;
 
             // Debug.Log("Memunculkan " + i.ToString());
@@ -45,7 +45,7 @@ public class PemunculTanah : MonoBehaviour
         if (playerPos.position.x >= jarak && playerController.isPlaying)
         {
             Vector3 posisi = new Vector3(posx, locTanah.position.y, locTanah.position.z);
-            membuatTanah(posisi, objekTanah, locParent, count);
+            MembuatTanah(posisi, objekTanah, locParent, count);
             posx += TANAH_WIDTH;
             jarak += TANAH_WIDTH;
             count++;
@@ -56,7 +56,7 @@ public class PemunculTanah : MonoBehaviour
     }
 
     // function untuk pemanggilan tanah
-    private void membuatTanah(Vector3 pos, GameObject obj, Transform objParent, int c)
+    private void MembuatTanah(Vector3 pos, GameObject obj, Transform objParent, int c)
     {
         var tanahBaru = Instantiate(obj, pos, Quaternion.identity);
 

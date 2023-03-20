@@ -9121,6 +9121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869645087}
   - component: {fileID: 1869645088}
+  - component: {fileID: 1869645089}
   m_Layer: 9
   m_Name: Obs
   m_TagString: Untagged
@@ -9161,6 +9162,8 @@ MonoBehaviour:
   radiusObs: 3.5
   jarakMuncul: 10
   jarakCelah: 2
+  presentasiAnimasi: 95
+  posisiTriggerAnimasi: 40
   Penjarakan:
   - jarakKurang: 0.1
     pelatukJarak: 30
@@ -9183,6 +9186,25 @@ MonoBehaviour:
   - jarakKurang: 0.45
     pelatukJarak: 1800
     sudahkahJarak: 0
+--- !u!95 &1869645089
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869645086}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba572bd7086dd614e884b0abf87f8d14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1876560449
 GameObject:
   m_ObjectHideFlags: 0

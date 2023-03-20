@@ -7,6 +7,7 @@ TagManager:
   - Batas
   - Poin
   - Obstakel
+  - Coin
   layers:
   - Default
   - TransparentFX

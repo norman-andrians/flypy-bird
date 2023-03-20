@@ -62,22 +62,33 @@
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Resources\Scripts\Game Object\Obstacle\PemunculObstakel.cs" />
     <Compile Include="Assets\Resources\Scripts\Game Object\Ground\Semak.cs" />
+    <Compile Include="Assets\Resources\Scripts\Level\LevelLoader.cs" />
     <Compile Include="Assets\Resources\Scripts\Visual\CameraMovement.cs" />
     <Compile Include="Assets\Resources\Scripts\Dev\DevLog.cs" />
     <Compile Include="Assets\Resources\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Resources\Scripts\UI\Text\PointText.cs" />
     <Compile Include="Assets\Resources\Scripts\Game Object\Obstacle\Obstakel.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\SaveSystem.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\OptionsData.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Resources\Scripts\Player\GameOver.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\In Obj\LoadAllData.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Resources\Scripts\UI\Button\MenuButton.cs" />
     <Compile Include="Assets\Resources\Scripts\Game Object\Enviroment\PemindahGunung.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\Player.cs" />
+    <Compile Include="Assets\Resources\Scripts\UI\Text\GameLog.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Resources\Scripts\Game Object\Clouds\Awan.cs" />
     <Compile Include="Assets\Resources\Scripts\UI\Button\PauseButton.cs" />
+    <Compile Include="Assets\Resources\Scripts\Data\Options.cs" />
+    <Compile Include="Assets\Resources\Scripts\Animation\CountingValueAnim.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -85,6 +96,7 @@
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Resources\Scripts\Audio\GameAudio.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Resources\Scripts\Player\FollowPlayer.cs" />
@@ -105,7 +117,8 @@
     <Compile Include="Assets\Resources\Scripts\Game Object\Ground\PemunculTanah.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Packages\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Resources\Scripts\Player\GameOver.cs" />
+    <Compile Include="Assets\Resources\Scripts\Game Object\Coins\CoinObject.cs" />
+    <Compile Include="Assets\Resources\Scripts\UI\Coins\CoinText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packages\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -725,6 +738,9 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
@@ -781,6 +797,9 @@
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>

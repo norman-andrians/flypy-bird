@@ -26,6 +26,8 @@ public class MenuButton : MonoBehaviour
 
     private Button visb;
 
+    private bool isPlaying = false;
+
     private void Start()
     {
         settingAnim = settingButton.GetComponent<Animator>();
@@ -45,16 +47,19 @@ public class MenuButton : MonoBehaviour
 
     public void StartButton(bool playing)
     {
-        if (showSetting) StartCoroutine(HideSetting());
-        if (showCredits) StartCoroutine(HideCredits());
+        if (!isPlaying)
+        {
+            if (showSetting) StartCoroutine(HideSetting());
+            if (showCredits) StartCoroutine(HideCredits());
 
-        playerController.isPlaying = playing;
-        pointField.SetActive(true);
+            playerController.isPlaying = playing;
+            pointField.SetActive(true);
 
-        LbbAnim.enabled = true;
+            LbbAnim.enabled = true;
 
-        StartCoroutine(MulaiGame());
-
+            StartCoroutine(MulaiGame());
+            isPlaying = true;
+        }
     }
 
     public void SettingButton()

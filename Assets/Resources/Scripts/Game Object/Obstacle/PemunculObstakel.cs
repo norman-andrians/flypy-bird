@@ -20,11 +20,17 @@ public class PemunculObstakel : MonoBehaviour
     public float jarakMuncul = 4f;
     public float jarakCelah = 1f;
 
+
+    public float presentasiAnimasi = 40f;
+    public float posisiTriggerAnimasi = 80f;
+
     public PenjarakanLevel[] Penjarakan;
 
     private Transform obsPos;
     private Transform playerPos;
     private PlayerController playerController;
+
+    private Animator objAnimator;
 
     private int count = 1;
     private float posy;
@@ -35,6 +41,8 @@ public class PemunculObstakel : MonoBehaviour
     void Start()
     {
         obsPos = obstakel.GetComponent<Transform>();
+        objAnimator = gameObject.GetComponent<Animator>();
+
         playerPos = player.GetComponent<Transform>();
         playerController = player.GetComponent<PlayerController>();
 
@@ -44,7 +52,7 @@ public class PemunculObstakel : MonoBehaviour
         {
             posy = Random.Range(-radiusObs, radiusObs);
             Vector3 posisiObs = new Vector3(jarakMunculSebenarnya, posy, obsPos.position.z);
-            membuatObstakel(obstakel, posisiObs, jarakCelah, count);
+            MembuatObstakel(obstakel, posisiObs, jarakCelah, count);
 
             count++;
             jarakAntarPlayer += jarakMuncul / 2;
@@ -61,7 +69,7 @@ public class PemunculObstakel : MonoBehaviour
 
             posy = Random.Range(-radiusObs, radiusObs);
             Vector3 posisiObs = new Vector3(jarakMunculSebenarnya, posy, obsPos.position.z);
-            membuatObstakel(obstakel, posisiObs, jarakCelah, count);
+            MembuatObstakel(obstakel, posisiObs, jarakCelah, count);
 
             count++;
             jarakAntarPlayer += jarakMuncul / 2;
@@ -69,12 +77,24 @@ public class PemunculObstakel : MonoBehaviour
         }
     }
 
-    public void membuatObstakel(GameObject obj, Vector3 pos, float jarak, int jumlah)
+    private void MembuatAnimasi(Transform animObject, int probability)
+    {
+        int possibility = Random.Range(probability, 100);
+
+        if (probability == possibility)
+        {
+            Animator obsAnim = animObject.gameObject.AddComponent<Animator>();
+            obsAnim.runtimeAnimatorController = objAnimator.runtimeAnimatorController;
+        }
+    }
+
+    public void MembuatObstakel(GameObject obj, Vector3 pos, float jarak, int jumlah)
     {
         GameObject obsBaru = Instantiate(obj, pos, Quaternion.identity);
 
-        Transform obsTop = obsBaru.transform.GetChild(0);
-        Transform obsBottom = obsBaru.transform.GetChild(1);
+        Transform obsObject = obsBaru.transform.GetChild(0);
+        Transform obsTop = obsObject.GetChild(0);
+        Transform obsBottom = obsObject.GetChild(1);
 
         float jarakTopy = obsTop.position.y;
         float jarakBottomy = obsBottom.position.y;
@@ -85,10 +105,15 @@ public class PemunculObstakel : MonoBehaviour
         obsTop.position = obsTopPos;
         obsBottom.position = obsBottomPos;
 
-        MunculkanCoin(2, obsBaru);
+        MunculkanCoin(2, obsObject);
 
         obsBaru.name = obj.name + " " + jumlah.ToString();
         obsBaru.transform.parent = gameObject.transform;
+
+        if (playerPos.position.x > posisiTriggerAnimasi)
+        {
+            MembuatAnimasi(obsObject, (int)presentasiAnimasi);
+        }
     }
 
     public void jarakObs(PenjarakanLevel[] jarakLevel)
@@ -104,7 +129,7 @@ public class PemunculObstakel : MonoBehaviour
         }
     }
 
-    public void MunculkanCoin(int seed, GameObject parent)
+    public void MunculkanCoin(int seed, Transform parent)
     {
         int valRange = Random.Range(0, seed);
         int valTarget = 0;
@@ -112,12 +137,12 @@ public class PemunculObstakel : MonoBehaviour
         if (valRange == valTarget)
         {
             GameObject coinBaru = Instantiate(coins, new Vector3(
-                parent.transform.position.x,
-                parent.transform.position.y,
+                parent.position.x,
+                parent.position.y,
                 -2f
                 ), Quaternion.identity);
 
-            coinBaru.transform.parent = parent.transform;
+            coinBaru.transform.parent = parent;
         }
     }
 }
